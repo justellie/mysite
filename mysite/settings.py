@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
+SITE_ID=1
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig'
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'django.contrib.postgres',
+    'blog.apps.BlogConfig',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +81,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER':'blog',
+        'PASSWORD':'blog123',
     }
 }
 
@@ -120,3 +126,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'elioruiz.en@gmail.com'
+EMAIL_HOST_PASSWORD = '******'
+EMAIL_PORT = 587
