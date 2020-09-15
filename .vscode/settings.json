@@ -1,0 +1,15 @@
+{
+    "django.snippets.exclude": [
+
+        "cms",
+        "wagtail"
+    ],
+    "emmet.excludeLanguages": [
+
+        "markdown"
+    ],
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+    "python.pythonPath": "c:\\Users\\Elio\\my_Django_env\\Scripts\\python.exe"
+}
